@@ -9,10 +9,14 @@
 		    	/*外边距和内边距都为0*/
 		    	margin: 0;
 		    	padding: 0;
+		    	
 		    }
 		    /*去掉小黑点*/
-		    ul {
+		    #list {
 		    	list-style-type: none;
+		    	left:0px;
+		    	top:0px;
+		    	position: absolute;
 		    }
 			img {
 				width:600px;
@@ -26,17 +30,36 @@
 				margin: 0 auto;
 				/*超出容器部分隐藏*/
 				overflow:hidden;
+				position:relative;
 			}
 			
 		</style>
 	</head>
 	<body>
 		<div id= "cc">
-			<ul>
+			<ul id =list>
 				<li><img src="img/1.jpg"></li>
 				<li><img src="img/2.jpg"></li>                        
 				<li><img src="img/3.jpg"></li>
 			</ul>
 		</div>
+		<!--<script type="text/javascript" src="js/move (1).js" ></script>-->
+		<script>
+		    
+		
+		
+			var oUl=document.getElementById("list");
+//			oUl.style.top="-300px";
+//          startMove(oUl, "top",-600);
+            var i=0;
+            var timer=setInterval(function(){
+            	i = i-10;
+            	oUl.style.top=i + "px";
+            	if (i <= -600){
+            		clearInterval(timer);
+            	}
+            },50);
+			
+		</script>
 	</body>
 </html>
